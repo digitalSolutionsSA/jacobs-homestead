@@ -1,0 +1,502 @@
+.page-content {
+  padding: 7rem 2rem;
+  background: var(--warm-white);
+}
+
+.page-content__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-content__inner--narrow {
+  max-width: 860px;
+}
+
+.content-kicker {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 0.75rem;
+}
+
+.content-block {
+  margin-bottom: 4rem;
+}
+
+.content-block .section-title {
+  margin-bottom: 0.5rem;
+}
+
+.content-block p {
+  font-size: 1.1rem;
+  line-height: 1.9;
+  color: var(--brown-dark);
+  margin-top: 1.5rem;
+}
+
+.about-image-feature {
+  margin: 3rem 0;
+  position: relative;
+}
+
+.about-image-feature img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+}
+
+.about-image-caption {
+  text-align: center;
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--brown-light);
+  margin-top: 0.75rem;
+}
+
+/* Values grid */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.value-card {
+  background: var(--parchment);
+  padding: 2rem;
+  border-left: 3px solid var(--rust);
+}
+
+.value-card__icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.value-card__title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--brown-dark);
+  margin-bottom: 0.5rem;
+}
+
+.value-card__desc {
+  font-size: 0.95rem;
+  color: var(--brown-mid);
+  line-height: 1.7;
+}
+
+/* ============= SHOP ============= */
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.shop-card {
+  background: var(--warm-white);
+  border: 1px solid var(--parchment);
+  overflow: hidden;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.shop-card:hover {
+  box-shadow: 0 12px 40px rgba(44,30,15,0.1);
+  transform: translateY(-4px);
+}
+
+.shop-card__img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.shop-card:hover .shop-card__img {
+  transform: scale(1.04);
+}
+
+.shop-card__img-wrap {
+  overflow: hidden;
+}
+
+.shop-card__body {
+  padding: 1.5rem;
+}
+
+.shop-card__category {
+  font-family: var(--font-serif);
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--rust);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.shop-card__name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--brown-dark);
+  margin-bottom: 0.5rem;
+}
+
+.shop-card__price {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--brown-mid);
+  margin-bottom: 1.25rem;
+}
+
+.shop-card__btn {
+  display: inline-block;
+  background: var(--rust);
+  color: var(--warm-white);
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.5rem;
+  transition: background 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.shop-card__btn:hover {
+  background: var(--rust-light);
+}
+
+/* ============= CHICKENS ============= */
+.chicken-breeds {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.breed-card {
+  display: flex;
+  gap: 1.5rem;
+  background: var(--parchment);
+  padding: 1.75rem;
+  align-items: flex-start;
+}
+
+.breed-card__img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.breed-card__info h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--brown-dark);
+  margin-bottom: 0.5rem;
+}
+
+.breed-card__info p {
+  font-size: 0.95rem;
+  color: var(--brown-mid);
+  line-height: 1.7;
+  margin: 0 !important;
+}
+
+/* ============= BLOG ============= */
+.blog-grid-full {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+/* ============= RESOURCES ============= */
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.resource-item {
+  background: var(--parchment);
+  padding: 2rem;
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  border-bottom: 2px solid var(--tan);
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.resource-item:hover {
+  border-color: var(--rust);
+  transform: translateY(-2px);
+}
+
+.resource-item__icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.resource-item__title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--brown-dark);
+  margin-bottom: 0.4rem;
+}
+
+.resource-item__desc {
+  font-size: 0.92rem;
+  color: var(--brown-mid);
+  line-height: 1.6;
+}
+
+/* ============= CONTACT ============= */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.contact-info h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--brown-dark);
+  margin-bottom: 1rem;
+}
+
+.contact-info p {
+  font-size: 1rem;
+  color: var(--brown-mid);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.contact-detail {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--brown-dark);
+}
+
+.contact-detail span:first-child {
+  font-size: 1.25rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brown-mid);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 0.85rem 1rem;
+  background: var(--warm-white);
+  border: 1px solid var(--tan);
+  color: var(--charcoal);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+  width: 100%;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--rust);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+/* ============= YOUTUBE ============= */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.video-card {
+  background: var(--warm-white);
+  border: 1px solid var(--parchment);
+  overflow: hidden;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.video-card:hover {
+  box-shadow: 0 12px 40px rgba(44,30,15,0.1);
+  transform: translateY(-4px);
+}
+
+.video-card__thumb {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.video-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.video-card:hover .video-card__thumb img {
+  transform: scale(1.05);
+}
+
+.video-card__play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(26,18,9,0.3);
+  transition: background 0.3s;
+}
+
+.video-card:hover .video-card__play {
+  background: rgba(26,18,9,0.5);
+}
+
+.video-card__play-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--rust);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.video-card:hover .video-card__play-icon {
+  transform: scale(1.1);
+  background: var(--rust-light);
+}
+
+.video-card__body {
+  padding: 1.5rem;
+}
+
+.video-card__title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--brown-dark);
+  margin-bottom: 0.5rem;
+}
+
+.video-card__meta {
+  font-family: var(--font-serif);
+  font-size: 0.78rem;
+  color: var(--brown-light);
+  letter-spacing: 0.05em;
+}
+
+/* ============= HOMESCHOOL ============= */
+.curriculum-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.curriculum-card {
+  background: var(--parchment);
+  padding: 2rem;
+  border-top: 3px solid var(--rust);
+}
+
+.curriculum-card__icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.curriculum-card__title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--brown-dark);
+  margin-bottom: 0.75rem;
+}
+
+.curriculum-card__desc {
+  font-size: 0.95rem;
+  color: var(--brown-mid);
+  line-height: 1.7;
+}
+
+/* ============= RESPONSIVE ============= */
+@media (max-width: 1024px) {
+  .shop-grid,
+  .blog-grid-full,
+  .curriculum-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .values-grid,
+  .chicken-breeds,
+  .resources-grid,
+  .video-grid,
+  .contact-grid,
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .shop-grid,
+  .blog-grid-full,
+  .curriculum-cards {
+    grid-template-columns: 1fr;
+  }
+}

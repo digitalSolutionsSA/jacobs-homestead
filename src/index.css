@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Lato:wght@300;400;700&display=swap');
+
+:root {
+  /* Core palette */
+  --cream: #f5f0e8;
+  --warm-white: #faf7f2;
+  --parchment: #ede5d0;
+  --tan: #d4c4a8;
+  --sage: #7a8c6e;
+  --sage-dark: #5a6b4e;
+  --sage-light: #a8b89a;
+  --earth: #8b6f4e;
+  --charcoal: #2c2c2c;
+  --black-barn: #1a1209;
+  --rust: #b5603a;
+  --rust-light: #cc7a52;
+  --gold: #c4975a;
+  --gold-light: #d4b07a;
+
+  /* Aliases used across components */
+  --brown-dark: #3d2b1a;
+  --brown-mid: #7a5c3e;
+  --brown-light: #a08060;
+
+  /* Fonts */
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Cormorant Garamond', serif;
+  --font-serif: 'Lato', sans-serif;
+  --font-ui: 'Lato', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--warm-white);
+  color: var(--brown-dark);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+h1, h2, h3, h4, h5 { font-family: var(--font-display); font-weight: 400; line-height: 1.2; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--parchment); }
+::-webkit-scrollbar-thumb { background: var(--rust); border-radius: 3px; }
+
+/* Section title shared */
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3.5vw, 3rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--brown-dark);
+  line-height: 1.2;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--gold);
+}
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--tan);
+  max-width: 80px;
+}
+
+/* Fade-up animation */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.7s ease forwards; }
+.fade-up-delay-2 { animation-delay: 0.15s; opacity: 0; animation-fill-mode: forwards; }
+.fade-up-delay-3 { animation-delay: 0.3s; opacity: 0; animation-fill-mode: forwards; }
+
+/* Hero slow zoom */
+@keyframes heroZoom {
+  from { transform: scale(1.05); }
+  to { transform: scale(1); }
+}
