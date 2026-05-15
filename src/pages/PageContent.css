@@ -78,10 +78,11 @@
 }
 
 .value-card__title {
-  font-family: var(--font-display);
-  font-size: 1.3rem;
+  font-family: var(--font-hero);
+  font-size: 1rem;
   font-weight: 400;
-  font-style: italic;
+  font-style: normal;
+  letter-spacing: 0.06em;
   color: var(--brown-dark);
   margin-bottom: 0.5rem;
 }
@@ -142,10 +143,11 @@
 }
 
 .shop-card__name {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-family: var(--font-hero);
+  font-size: 1rem;
   font-weight: 400;
-  font-style: italic;
+  font-style: normal;
+  letter-spacing: 0.05em;
   color: var(--brown-dark);
   margin-bottom: 0.5rem;
 }
@@ -199,10 +201,11 @@
 }
 
 .breed-card__info h3 {
-  font-family: var(--font-display);
-  font-size: 1.3rem;
+  font-family: var(--font-hero);
+  font-size: 1.05rem;
   font-weight: 400;
-  font-style: italic;
+  font-style: normal;
+  letter-spacing: 0.06em;
   color: var(--brown-dark);
   margin-bottom: 0.5rem;
 }
@@ -250,10 +253,11 @@
 }
 
 .resource-item__title {
-  font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-family: var(--font-hero);
+  font-size: 1rem;
   font-weight: 400;
-  font-style: italic;
+  font-style: normal;
+  letter-spacing: 0.05em;
   color: var(--brown-dark);
   margin-bottom: 0.4rem;
 }
@@ -273,10 +277,11 @@
 }
 
 .contact-info h3 {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-family: var(--font-hero);
+  font-size: 1.2rem;
   font-weight: 400;
-  font-style: italic;
+  font-style: normal;
+  letter-spacing: 0.06em;
   color: var(--brown-dark);
   margin-bottom: 1rem;
 }
@@ -425,10 +430,11 @@
 }
 
 .video-card__title {
-  font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-family: var(--font-hero);
+  font-size: 1rem;
   font-weight: 400;
-  font-style: italic;
+  font-style: normal;
+  letter-spacing: 0.05em;
   color: var(--brown-dark);
   margin-bottom: 0.5rem;
 }
@@ -461,10 +467,11 @@
 }
 
 .curriculum-card__title {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-family: var(--font-hero);
+  font-size: 1rem;
   font-weight: 400;
-  font-style: italic;
+  font-style: normal;
+  letter-spacing: 0.05em;
   color: var(--brown-dark);
   margin-bottom: 0.75rem;
 }

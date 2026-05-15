@@ -103,14 +103,14 @@
 }
 
 .home__hero-title {
-  font-family: var(--font-display);
-  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-family: var(--font-hero);
+  font-size: clamp(3rem, 7.5vw, 6.5rem);
   font-weight: 400;
-  font-style: italic;
-  line-height: 1.0;
+  font-style: normal;
+  line-height: 1.1;
   margin-bottom: 1rem;
-  text-shadow: 0 2px 20px rgba(0,0,0,0.3);
-  letter-spacing: -0.01em;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.45);
+  letter-spacing: 0.06em;
 }
 
 .home__hero-sub {
@@ -187,7 +187,13 @@
 /* ============= INTRO ============= */
 .home__intro {
   padding: 8rem 2rem;
-  background: var(--warm-white);
+  background-color: var(--warm-white);
+  background-image:
+    repeating-linear-gradient(0deg,   rgba(160,145,125,0.13) 0px, rgba(160,145,125,0.13) 1px, transparent 1px, transparent 28px),
+    repeating-linear-gradient(90deg,  rgba(160,145,125,0.13) 0px, rgba(160,145,125,0.13) 1px, transparent 1px, transparent 28px),
+    repeating-linear-gradient(0deg,   rgba(160,145,125,0.07) 0px, rgba(160,145,125,0.07) 1px, transparent 1px, transparent 7px),
+    repeating-linear-gradient(90deg,  rgba(160,145,125,0.07) 0px, rgba(160,145,125,0.07) 1px, transparent 1px, transparent 7px);
+  background-size: 28px 28px, 28px 28px, 7px 7px, 7px 7px;
 }
 
 .home__intro-inner {
@@ -324,12 +330,13 @@
 }
 
 .pillar-card__title {
-  font-family: var(--font-display);
-  font-size: 1.4rem;
+  font-family: var(--font-hero);
+  font-size: 1.1rem;
   font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.06em;
   color: var(--brown-dark);
   margin-bottom: 0.75rem;
-  font-style: italic;
 }
 
 .pillar-card__desc {
@@ -404,7 +411,13 @@
 /* ============= BLOG ============= */
 .home__blog {
   padding: 8rem 2rem;
-  background: var(--warm-white);
+  background-color: var(--warm-white);
+  background-image:
+    repeating-linear-gradient(0deg,   rgba(160,145,125,0.13) 0px, rgba(160,145,125,0.13) 1px, transparent 1px, transparent 28px),
+    repeating-linear-gradient(90deg,  rgba(160,145,125,0.13) 0px, rgba(160,145,125,0.13) 1px, transparent 1px, transparent 28px),
+    repeating-linear-gradient(0deg,   rgba(160,145,125,0.07) 0px, rgba(160,145,125,0.07) 1px, transparent 1px, transparent 7px),
+    repeating-linear-gradient(90deg,  rgba(160,145,125,0.07) 0px, rgba(160,145,125,0.07) 1px, transparent 1px, transparent 7px);
+  background-size: 28px 28px, 28px 28px, 7px 7px, 7px 7px;
 }
 
 .home__blog-inner {

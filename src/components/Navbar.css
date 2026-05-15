@@ -102,6 +102,50 @@
   color: var(--rust);
 }
 
+/* Cart icon */
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+  z-index: 101;
+}
+
+.navbar__cart {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: var(--warm-white);
+  transition: color 0.3s ease;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.35));
+}
+
+.navbar--scrolled .navbar__cart {
+  color: var(--charcoal);
+  filter: none;
+}
+
+.navbar__cart:hover { color: var(--gold-light); }
+.navbar--scrolled .navbar__cart:hover { color: var(--rust); }
+
+.navbar__cart-badge {
+  position: absolute;
+  top: -7px;
+  right: -9px;
+  background: var(--rust);
+  color: #fff;
+  font-family: var(--font-serif);
+  font-size: 0.6rem;
+  font-weight: 700;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
 /* Hamburger */
 .navbar__hamburger {
   display: none;
@@ -137,6 +181,8 @@
   .navbar__hamburger {
     display: flex;
   }
+
+  .navbar__cart svg { width: 20px; height: 20px; }
 
   .navbar__nav {
     position: fixed;
