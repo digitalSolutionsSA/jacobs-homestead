@@ -32,15 +32,15 @@
 }
 
 .navbar__logo-img {
-  height: 70px;
+  height: 80px;
   width: auto;
-  transition: height 0.4s ease;
-  /* Invert for light backgrounds on scroll */
-  filter: brightness(0) invert(0);
+  transition: height 0.4s ease, filter 0.4s ease;
+  filter: none; /* white logo shows on dark hero */
 }
 
 .navbar--scrolled .navbar__logo-img {
-  height: 52px;
+  height: 60px;
+  filter: brightness(0); /* turns white logo black on light navbar */
 }
 
 .navbar__nav {
