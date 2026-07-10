@@ -65,14 +65,14 @@ export default function Home() {
           <p className="home__hero-eyebrow">Welcome to</p>
           <h1 className="home__hero-title">The Jacobs<br />Homestead</h1>
           <p className="home__hero-sub">
-            Faith · Family · Simple Living
+            Rooted in Christ • Growing in Grace
           </p>
           <div className="home__hero-divider">
             <span>✦</span>
           </div>
           <p className="home__hero-desc fade-up fade-up-delay-2">
-            A family homestead rooted in faith, raising chickens, growing food,<br />
-            educating our children, and sharing every step of the journey with you.
+            A family homestead rooted in Christ, we share our journey of homesteading, homeschooling,<br />
+            raising farm animals, growing food, creating a life centred on faith, family and purpose.
           </p>
           <div className="home__hero-actions fade-up fade-up-delay-3">
             <Link to="/about" className="btn btn--primary">Our Story</Link>
@@ -89,17 +89,14 @@ export default function Home() {
       <section className="home__intro">
         <div className="home__intro-inner">
           <div className="home__intro-text">
-            <span className="home__intro-kicker">Rooted in faith, grown with love</span>
-            <h2 className="section-title">A place to slow down<br />& live with intention</h2>
+            <span className="home__intro-kicker">This is Us</span>
+            <h2 className="section-title">Meet the Family</h2>
             <div className="divider"><span>✦</span></div>
             <p>
-              We\'re the Jacobs family — learning, growing, and sharing our homesteading life with anyone who
-              dreams of a simpler way. Whether you\'re raising chickens in your backyard or building a homestead
-              from scratch, you\'ll find honest, real-life guidance here.
+              We're the Jacobs family — learning, growing, and sharing our homesteading life with anyone who
+              dreams of a simpler way. Whether you're raising chickens in your backyard or building a homestead
+              from scratch, you'll find honest, real-life guidance here.
             </p>
-            <Link to="/about" className="btn btn--outline" style={{ marginTop: '2rem', display: 'inline-block' }}>
-              Meet the Family →
-            </Link>
           </div>
           <div className="home__intro-image-grid">
             <div className="home__intro-img home__intro-img--tall">
@@ -119,8 +116,8 @@ export default function Home() {
       <section className="home__pillars">
         <div className="home__pillars-inner">
           <div className="home__pillars-header">
-            <p className="home__pillars-kicker">What we share</p>
-            <h2 className="section-title">Life on the homestead</h2>
+            <p className="home__pillars-kicker">A look into our days</p>
+            <h2 className="section-title">Homestead Life & Learning</h2>
           </div>
           <div className="home__pillars-grid">
             {pillars.map((p, i) => (
