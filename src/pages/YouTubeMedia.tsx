@@ -23,7 +23,7 @@ export default function YouTubeMedia() {
         kicker="Watch & follow along"
         title="YouTube & Media"
         subtitle="Real, unfiltered homestead life — subscribe for weekly videos"
-        image="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=1800&q=80"
+        image="media.jpg"
       />
 
       <section className="page-content">

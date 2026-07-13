@@ -7,9 +7,9 @@ export default function AboutUs() {
     <div>
       <PageHero
         kicker="Get to know us"
-        title="About Us"
+        title="Our Story"
         subtitle="Cultivating Faith, Family, and Purpose"
-        image="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1800&q=80"
+        image="public/story2.jpeg"
       />
 
       <section className="page-content">
@@ -46,7 +46,7 @@ export default function AboutUs() {
           </div>
 
           <div className="about-image-feature fade-up">
-            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=900&q=80" alt="The homestead" />
+            <img src="public/jacobs.jpeg" alt="The homestead" />
             <div className="about-image-caption">Our little corner of the world</div>
           </div>
 

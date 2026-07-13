@@ -27,7 +27,7 @@ export default function Blog() {
         kicker="Stories from the homestead"
         title="The Blog"
         subtitle="Real life, honest reflections, and practical guides from our family farm"
-        image="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1800&q=80"
+        image="public/blog.jpg"
       />
 
       <section className="page-content">

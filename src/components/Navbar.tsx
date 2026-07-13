@@ -6,7 +6,7 @@ import logoImg from '../assets/logo.png'
 
 const navLinks = [
   { to: '/', label: 'Home' },
-  { to: '/about', label: 'About Us' },
+  { to: '/about', label: 'Our Story' },
   { to: '/shop', label: 'Shop' },
   { to: '/our-chickens', label: 'Our Chickens' },
   { to: '/homeschooling', label: 'Homeschooling' },

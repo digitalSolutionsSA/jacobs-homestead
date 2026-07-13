@@ -17,7 +17,7 @@ export default function Contact() {
         kicker="We'd love to hear from you"
         title="Contact"
         subtitle="Questions, collaborations, or just a kind hello — our inbox is open"
-        image="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1800&q=80"
+        image="public/phone.jpg"
       />
 
       <section className="page-content">

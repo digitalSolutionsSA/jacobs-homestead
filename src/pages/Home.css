@@ -60,7 +60,7 @@
 .home__hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1800&q=85');
+  background-image: url('/public/hero.png');
   background-size: cover;
   background-position: center 40%;
   transform: scale(1.05);
@@ -192,8 +192,10 @@
     repeating-linear-gradient(0deg,   rgba(160,145,125,0.13) 0px, rgba(160,145,125,0.13) 1px, transparent 1px, transparent 28px),
     repeating-linear-gradient(90deg,  rgba(160,145,125,0.13) 0px, rgba(160,145,125,0.13) 1px, transparent 1px, transparent 28px),
     repeating-linear-gradient(0deg,   rgba(160,145,125,0.07) 0px, rgba(160,145,125,0.07) 1px, transparent 1px, transparent 7px),
-    repeating-linear-gradient(90deg,  rgba(160,145,125,0.07) 0px, rgba(160,145,125,0.07) 1px, transparent 1px, transparent 7px);
-  background-size: 28px 28px, 28px 28px, 7px 7px, 7px 7px;
+    repeating-linear-gradient(90deg,  rgba(160,145,125,0.07) 0px, rgba(160,145,125,0.07) 1px, transparent 1px, transparent 7px),
+    repeating-linear-gradient(0deg,   rgba(160,145,125,0.04) 0px, rgba(160,145,125,0.04) 1px, transparent 1px, transparent 3px),
+    repeating-linear-gradient(90deg,  rgba(160,145,125,0.03) 0px, rgba(160,145,125,0.03) 1px, transparent 1px, transparent 3px);
+  background-size: 28px 28px, 28px 28px, 7px 7px, 7px 7px, 3px 3px, 3px 3px;
 }
 
 .home__intro-inner {
@@ -367,8 +369,8 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: url('https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=1800&q=60') center/cover;
-  opacity: 0.08;
+  background: url('public/home.jpeg') center/cover;
+  opacity: 0.38;
 }
 
 .home__quote-inner {
@@ -416,8 +418,10 @@
     repeating-linear-gradient(0deg,   rgba(160,145,125,0.13) 0px, rgba(160,145,125,0.13) 1px, transparent 1px, transparent 28px),
     repeating-linear-gradient(90deg,  rgba(160,145,125,0.13) 0px, rgba(160,145,125,0.13) 1px, transparent 1px, transparent 28px),
     repeating-linear-gradient(0deg,   rgba(160,145,125,0.07) 0px, rgba(160,145,125,0.07) 1px, transparent 1px, transparent 7px),
-    repeating-linear-gradient(90deg,  rgba(160,145,125,0.07) 0px, rgba(160,145,125,0.07) 1px, transparent 1px, transparent 7px);
-  background-size: 28px 28px, 28px 28px, 7px 7px, 7px 7px;
+    repeating-linear-gradient(90deg,  rgba(160,145,125,0.07) 0px, rgba(160,145,125,0.07) 1px, transparent 1px, transparent 7px),
+    repeating-linear-gradient(0deg,   rgba(160,145,125,0.04) 0px, rgba(160,145,125,0.04) 1px, transparent 1px, transparent 3px),
+    repeating-linear-gradient(90deg,  rgba(160,145,125,0.03) 0px, rgba(160,145,125,0.03) 1px, transparent 1px, transparent 3px);
+  background-size: 28px 28px, 28px 28px, 7px 7px, 7px 7px, 3px 3px, 3px 3px;
 }
 
 .home__blog-inner {

@@ -100,13 +100,13 @@ export default function Home() {
           </div>
           <div className="home__intro-image-grid">
             <div className="home__intro-img home__intro-img--tall">
-              <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=500&q=80" alt="Farm landscape" />
+              <img src="public/family.jpeg" alt="Farm landscape" />
             </div>
             <div className="home__intro-img">
-              <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80" alt="Homestead life" />
+              <img src="public/jwork.jpeg" alt="Homestead life" />
             </div>
             <div className="home__intro-img">
-              <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=400&q=80" alt="Chickens" />
+              <img src="public/joshcow.jpeg" alt="Chickens" />
             </div>
           </div>
         </div>
