@@ -1,0 +1,85 @@
+.admin-dashboard h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2c2c2c;
+  margin: 0 0 4px;
+}
+
+.admin-dashboard__email {
+  color: #888;
+  margin: 0 0 32px;
+}
+
+.admin-dashboard__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.stat-card__number {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #2c3e2d;
+}
+
+.stat-card__label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #444;
+  margin-top: 4px;
+}
+
+.stat-card__sub {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 2px;
+}
+
+.admin-dashboard__actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.action-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.action-card:hover {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+
+.action-card__icon {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.action-card__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2c2c2c;
+}
+
+.action-card__desc {
+  font-size: 0.88rem;
+  color: #888;
+}

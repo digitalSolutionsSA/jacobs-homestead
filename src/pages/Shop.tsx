@@ -31,7 +31,7 @@ export default function Shop() {
         kicker="The Homestead Shop"
         title="Shop"
         subtitle="Resources, guides, and printables to help you on your homesteading journey"
-        image="public/shop2.png"
+        image="/shop2.png"
       />
 
       <section className="page-content">

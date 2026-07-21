@@ -1,0 +1,241 @@
+.admin-blogs__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.admin-blogs__header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2c2c2c;
+  margin: 0;
+}
+
+.admin-loading-text {
+  color: #888;
+}
+
+.admin-empty {
+  background: #fff;
+  border-radius: 12px;
+  padding: 48px;
+  text-align: center;
+  color: #888;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.admin-blogs__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.blog-row {
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.blog-row__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.blog-row__title {
+  font-weight: 600;
+  color: #2c2c2c;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.blog-row__slug {
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+.blog-row__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.badge {
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.badge--green { background: #e8f5e2; color: #3a7a2a; }
+.badge--grey { background: #f0f0f0; color: #888; }
+
+.btn-primary {
+  background: #5a7a4a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover:not(:disabled) { background: #4a6a3a; }
+.btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.btn-secondary {
+  background: #f0f0f0;
+  color: #444;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-secondary:hover { background: #e0e0e0; }
+
+.btn-sm {
+  background: #f0f0f0;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-sm:hover { background: #e0e0e0; }
+
+.btn-sm--danger { color: #c0392b; }
+.btn-sm--danger:hover { background: #fdecea; }
+
+/* Modal */
+.admin-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+.admin-modal {
+  background: #fff;
+  border-radius: 14px;
+  width: 100%;
+  max-width: 680px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+.admin-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 28px 0;
+}
+
+.admin-modal__header h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2c2c2c;
+  margin: 0;
+}
+
+.admin-modal__close {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #888;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.admin-modal__close:hover { background: #f0f0f0; }
+
+.admin-form {
+  padding: 20px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.admin-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.admin-form__field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #555;
+}
+
+.admin-form__field input[type="text"],
+.admin-form__field input[type="url"],
+.admin-form__field input[type="number"],
+.admin-form__field textarea,
+.admin-form__field select {
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+  resize: vertical;
+}
+
+.admin-form__field input:focus,
+.admin-form__field textarea:focus,
+.admin-form__field select:focus {
+  border-color: #5a7a4a;
+}
+
+.admin-form__field--row {
+  flex-direction: row;
+  align-items: center;
+}
+
+.admin-form__field--row label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.admin-form__error {
+  background: #fff0f0;
+  color: #c0392b;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.admin-form__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+}

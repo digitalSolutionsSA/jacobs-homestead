@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
+import { useAuth } from '../context/AuthContext'
 import './Navbar.css'
 import logoImg from '../assets/logo.png'
 
@@ -20,6 +21,8 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const { itemCount } = useCart()
+  const { user, signOut } = useAuth()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60)
@@ -51,6 +54,14 @@ export default function Navbar() {
         </nav>
 
         <div className="navbar__actions">
+          {user ? (
+            <div className="navbar__admin-actions">
+              <Link to="/admin" className="navbar__admin-link">Dashboard</Link>
+              <button className="navbar__admin-link navbar__admin-link--btn" onClick={async () => { await signOut(); navigate('/') }}>Sign Out</button>
+            </div>
+          ) : (
+            <Link to="/admin/login" className="navbar__login-btn">Admin Login</Link>
+          )}
           <Link to="/cart" className="navbar__cart" aria-label={`Cart (${itemCount} items)`}>
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>

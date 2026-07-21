@@ -100,13 +100,13 @@ export default function Home() {
           </div>
           <div className="home__intro-image-grid">
             <div className="home__intro-img home__intro-img--tall">
-              <img src="public/family.jpeg" alt="Farm landscape" />
+              <img src="/family.jpeg" alt="Farm landscape" />
             </div>
             <div className="home__intro-img">
-              <img src="public/jwork.jpeg" alt="Homestead life" />
+              <img src="/jwork.jpeg" alt="Homestead life" />
             </div>
             <div className="home__intro-img">
-              <img src="public/joshcow.jpeg" alt="Chickens" />
+              <img src="/joshcow.jpeg" alt="Chickens" />
             </div>
           </div>
         </div>

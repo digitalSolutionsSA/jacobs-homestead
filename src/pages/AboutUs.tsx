@@ -9,7 +9,7 @@ export default function AboutUs() {
         kicker="Get to know us"
         title="Our Story"
         subtitle="Cultivating Faith, Family, and Purpose"
-        image="public/story2.jpeg"
+        image="/story2.jpeg"
       />
 
       <section className="page-content">
@@ -46,7 +46,7 @@ export default function AboutUs() {
           </div>
 
           <div className="about-image-feature fade-up">
-            <img src="public/jacobs.jpeg" alt="The homestead" />
+            <img src="/jacobs.jpeg" alt="The homestead" />
             <div className="about-image-caption">Our little corner of the world</div>
           </div>
 
