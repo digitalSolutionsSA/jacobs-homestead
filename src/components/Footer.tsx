@@ -37,13 +37,6 @@ export default function Footer() {
           <Link to="/about">About Us</Link>
           <Link to="/blog">Blog</Link>
           <Link to="/shop">Shop</Link>
-          <Link to="/resources">Resources</Link>
-        </div>
-
-        <div className="footer__links">
-          <h4 className="footer__heading">The Homestead</h4>
-          <Link to="/our-chickens">Our Chickens</Link>
-          <Link to="/homeschooling">Homeschooling</Link>
           <Link to="/youtube-media">YouTube / Media</Link>
           <Link to="/contact">Contact</Link>
         </div>

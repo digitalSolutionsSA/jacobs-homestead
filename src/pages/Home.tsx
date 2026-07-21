@@ -31,15 +31,15 @@ const featuredPosts = [
 const pillars = [
   {
     icon: '🐓',
-    title: 'Our Chickens',
-    desc: 'We raise heritage breed chickens for eggs and the pure joy of it. Learn about our flock, our coop setup, and how to get started.',
-    link: '/our-chickens',
+    title: 'Chickens',
+    desc: 'We raise heritage breed chickens for eggs and the pure joy of it. Read about our flock, our coop setup, and how to get started.',
+    link: '/blog',
   },
   {
     icon: '📚',
     title: 'Homeschooling',
     desc: 'Faith-centered, nature-rich education at home. We share our curriculum, our rhythms, and the lessons only the homestead can teach.',
-    link: '/homeschooling',
+    link: '/blog',
   },
   {
     icon: '🌿',

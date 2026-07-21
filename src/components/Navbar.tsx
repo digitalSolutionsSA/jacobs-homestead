@@ -9,10 +9,7 @@ const navLinks = [
   { to: '/', label: 'Home' },
   { to: '/about', label: 'Our Story' },
   { to: '/shop', label: 'Shop' },
-  { to: '/our-chickens', label: 'Our Chickens' },
-  { to: '/homeschooling', label: 'Homeschooling' },
   { to: '/blog', label: 'Blog' },
-  { to: '/resources', label: 'Resources' },
   { to: '/youtube-media', label: 'YouTube / Media' },
   { to: '/contact', label: 'Contact' },
 ]
