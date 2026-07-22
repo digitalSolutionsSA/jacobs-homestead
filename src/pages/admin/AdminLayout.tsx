@@ -1,9 +1,10 @@
-import { Navigate, Outlet, NavLink } from 'react-router-dom'
+import { Navigate, Outlet, NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
 import './AdminLayout.css'
 
 export default function AdminLayout() {
   const { user, loading, signOut } = useAuth()
+  const navigate = useNavigate()
 
   if (loading) return <div className="admin-loading">Loading...</div>
   if (!user) return <Navigate to="/admin/login" replace />
@@ -26,7 +27,7 @@ export default function AdminLayout() {
             Products
           </NavLink>
         </nav>
-        <button className="admin-sidebar__signout" onClick={signOut}>
+        <button className="admin-sidebar__signout" onClick={async () => { await signOut(); navigate('/') }}>
           Sign Out
         </button>
       </aside>

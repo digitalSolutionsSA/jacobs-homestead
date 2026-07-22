@@ -10,7 +10,7 @@ export default function Footer() {
           <img src={logoImg} alt="The Jacobs Homestead" className="footer__logo" />
           <p className="footer__tagline">
             Living simply, growing intentionally,<br />
-            rooted in faith & family.
+            rooted in Christ & family.
           </p>
           <div className="footer__social">
             <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">

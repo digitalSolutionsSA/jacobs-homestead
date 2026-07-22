@@ -30,25 +30,21 @@ const featuredPosts = [
 
 const pillars = [
   {
-    icon: '🐓',
     title: 'Chickens',
     desc: 'We raise heritage breed chickens for eggs and the pure joy of it. Read about our flock, our coop setup, and how to get started.',
     link: '/blog',
   },
   {
-    icon: '📚',
     title: 'Homeschooling',
     desc: 'Faith-centered, nature-rich education at home. We share our curriculum, our rhythms, and the lessons only the homestead can teach.',
     link: '/blog',
   },
   {
-    icon: '🌿',
     title: 'Simple Living',
     desc: 'From scratch cooking to preserving the harvest — we\'re learning alongside you what it means to slow down and live with intention.',
     link: '/blog',
   },
   {
-    icon: '🎥',
     title: 'YouTube & Media',
     desc: 'Join us on YouTube for real, unfiltered glimpses into homestead life — the beautiful moments and the muddy ones too.',
     link: '/youtube-media',
@@ -122,7 +118,6 @@ export default function Home() {
           <div className="home__pillars-grid">
             {pillars.map((p, i) => (
               <Link to={p.link} key={i} className="pillar-card fade-up" style={{ animationDelay: `${i * 0.1}s` }}>
-                <div className="pillar-card__icon">{p.icon}</div>
                 <h3 className="pillar-card__title">{p.title}</h3>
                 <p className="pillar-card__desc">{p.desc}</p>
                 <span className="pillar-card__link">Explore →</span>

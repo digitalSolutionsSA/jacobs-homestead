@@ -1,8 +1,19 @@
-import { useEffect, useState, FormEvent } from 'react'
+import { useEffect, useState, FormEvent, useRef } from 'react'
 import { supabase, type Blog } from '../../lib/supabase'
 import './AdminBlogs.css'
 
-const emptyBlog = { title: '', slug: '', excerpt: '', content: '', image_url: '', published: false }
+const BLOG_CATEGORIES = ['Chickens', 'Homeschooling', 'Simple Living', 'Little Makers', 'Other']
+
+const emptyBlog = { title: '', slug: '', excerpt: '', category: '', content: '', image_url: '', published: false }
+
+async function uploadImage(file: File, folder: string): Promise<string> {
+  const ext = file.name.split('.').pop()
+  const path = `${folder}/${Date.now()}.${ext}`
+  const { error } = await supabase.storage.from('images').upload(path, file)
+  if (error) throw error
+  const { data } = supabase.storage.from('images').getPublicUrl(path)
+  return data.publicUrl
+}
 
 export default function AdminBlogs() {
   const [blogs, setBlogs] = useState<Blog[]>([])
@@ -11,7 +22,9 @@ export default function AdminBlogs() {
   const [editing, setEditing] = useState<Blog | null>(null)
   const [form, setForm] = useState(emptyBlog)
   const [saving, setSaving] = useState(false)
+  const [uploading, setUploading] = useState(false)
   const [error, setError] = useState('')
+  const fileInputRef = useRef<HTMLInputElement>(null)
 
   const fetchBlogs = async () => {
     setLoading(true)
@@ -35,6 +48,7 @@ export default function AdminBlogs() {
       title: blog.title,
       slug: blog.slug,
       excerpt: blog.excerpt ?? '',
+      category: blog.category ?? '',
       content: blog.content ?? '',
       image_url: blog.image_url ?? '',
       published: blog.published,
@@ -48,6 +62,21 @@ export default function AdminBlogs() {
 
   const handleTitleChange = (v: string) => {
     setForm(f => ({ ...f, title: v, slug: editing ? f.slug : handleSlug(v) }))
+  }
+
+  const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+    setUploading(true)
+    setError('')
+    try {
+      const url = await uploadImage(file, 'blog')
+      setForm(f => ({ ...f, image_url: url }))
+    } catch (err: any) {
+      setError('Image upload failed: ' + err.message)
+    } finally {
+      setUploading(false)
+    }
   }
 
   const handleSubmit = async (e: FormEvent) => {
@@ -138,6 +167,18 @@ export default function AdminBlogs() {
                 />
               </div>
               <div className="admin-form__field">
+                <label>Category</label>
+                <select
+                  value={form.category}
+                  onChange={e => setForm(f => ({ ...f, category: e.target.value }))}
+                >
+                  <option value="">— Select a category —</option>
+                  {BLOG_CATEGORIES.map(c => (
+                    <option key={c} value={c}>{c}</option>
+                  ))}
+                </select>
+              </div>
+              <div className="admin-form__field">
                 <label>Excerpt</label>
                 <input
                   type="text"
@@ -147,13 +188,28 @@ export default function AdminBlogs() {
                 />
               </div>
               <div className="admin-form__field">
-                <label>Image URL</label>
+                <label>Image</label>
+                {form.image_url && (
+                  <div className="admin-image-preview">
+                    <img src={form.image_url} alt="Preview" />
+                    <button
+                      type="button"
+                      className="admin-image-preview__remove"
+                      onClick={() => { setForm(f => ({ ...f, image_url: '' })); if (fileInputRef.current) fileInputRef.current.value = '' }}
+                    >
+                      Remove
+                    </button>
+                  </div>
+                )}
                 <input
-                  type="url"
-                  value={form.image_url}
-                  onChange={e => setForm(f => ({ ...f, image_url: e.target.value }))}
-                  placeholder="https://..."
+                  ref={fileInputRef}
+                  type="file"
+                  accept="image/*"
+                  className="admin-file-input"
+                  onChange={handleImageChange}
+                  disabled={uploading}
                 />
+                {uploading && <p className="admin-upload-status">Uploading image...</p>}
               </div>
               <div className="admin-form__field">
                 <label>Content *</label>
@@ -178,7 +234,7 @@ export default function AdminBlogs() {
               {error && <p className="admin-form__error">{error}</p>}
               <div className="admin-form__footer">
                 <button type="button" className="btn-secondary" onClick={() => setShowForm(false)}>Cancel</button>
-                <button type="submit" className="btn-primary" disabled={saving}>
+                <button type="submit" className="btn-primary" disabled={saving || uploading}>
                   {saving ? 'Saving...' : editing ? 'Save Changes' : 'Create Post'}
                 </button>
               </div>

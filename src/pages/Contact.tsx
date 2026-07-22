@@ -38,7 +38,7 @@ export default function Contact() {
                 </div>
                 <div className="contact-detail">
                   <span>📍</span>
-                  <span>Somewhere in rural America</span>
+                  <span>Buffelshoek,NW,South Africa</span>
                 </div>
                 <div className="contact-detail">
                   <span>📸</span>

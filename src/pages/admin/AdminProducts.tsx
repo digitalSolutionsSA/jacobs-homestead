@@ -1,9 +1,20 @@
-import { useEffect, useState, FormEvent } from 'react'
+import { useEffect, useState, FormEvent, useRef } from 'react'
 import { supabase, type Product } from '../../lib/supabase'
 import './AdminBlogs.css'
 import './AdminProducts.css'
 
+const PRODUCT_CATEGORIES = ['Eggs', 'Chickens', 'Honey', 'Produce', 'Printables', 'Digital Downloads', 'Little Makers', 'Other']
+
 const emptyProduct = { name: '', description: '', price: '', image_url: '', category: '', stock: '0', available: true }
+
+async function uploadImage(file: File, folder: string): Promise<string> {
+  const ext = file.name.split('.').pop()
+  const path = `${folder}/${Date.now()}.${ext}`
+  const { error } = await supabase.storage.from('images').upload(path, file)
+  if (error) throw error
+  const { data } = supabase.storage.from('images').getPublicUrl(path)
+  return data.publicUrl
+}
 
 export default function AdminProducts() {
   const [products, setProducts] = useState<Product[]>([])
@@ -12,7 +23,9 @@ export default function AdminProducts() {
   const [editing, setEditing] = useState<Product | null>(null)
   const [form, setForm] = useState(emptyProduct)
   const [saving, setSaving] = useState(false)
+  const [uploading, setUploading] = useState(false)
   const [error, setError] = useState('')
+  const fileInputRef = useRef<HTMLInputElement>(null)
 
   const fetchProducts = async () => {
     setLoading(true)
@@ -43,6 +56,21 @@ export default function AdminProducts() {
     })
     setError('')
     setShowForm(true)
+  }
+
+  const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+    setUploading(true)
+    setError('')
+    try {
+      const url = await uploadImage(file, 'products')
+      setForm(f => ({ ...f, image_url: url }))
+    } catch (err: any) {
+      setError('Image upload failed: ' + err.message)
+    } finally {
+      setUploading(false)
+    }
   }
 
   const handleSubmit = async (e: FormEvent) => {
@@ -163,21 +191,39 @@ export default function AdminProducts() {
               </div>
               <div className="admin-form__field">
                 <label>Category</label>
-                <input
-                  type="text"
+                <select
                   value={form.category}
                   onChange={e => setForm(f => ({ ...f, category: e.target.value }))}
-                  placeholder="e.g. Eggs, Chickens, Honey"
-                />
+                >
+                  <option value="">— Select a category —</option>
+                  {PRODUCT_CATEGORIES.map(c => (
+                    <option key={c} value={c}>{c}</option>
+                  ))}
+                </select>
               </div>
               <div className="admin-form__field">
-                <label>Image URL</label>
+                <label>Image</label>
+                {form.image_url && (
+                  <div className="admin-image-preview">
+                    <img src={form.image_url} alt="Preview" />
+                    <button
+                      type="button"
+                      className="admin-image-preview__remove"
+                      onClick={() => { setForm(f => ({ ...f, image_url: '' })); if (fileInputRef.current) fileInputRef.current.value = '' }}
+                    >
+                      Remove
+                    </button>
+                  </div>
+                )}
                 <input
-                  type="url"
-                  value={form.image_url}
-                  onChange={e => setForm(f => ({ ...f, image_url: e.target.value }))}
-                  placeholder="https://..."
+                  ref={fileInputRef}
+                  type="file"
+                  accept="image/*"
+                  className="admin-file-input"
+                  onChange={handleImageChange}
+                  disabled={uploading}
                 />
+                {uploading && <p className="admin-upload-status">Uploading image...</p>}
               </div>
               <div className="admin-form__field">
                 <label>Description</label>
@@ -201,7 +247,7 @@ export default function AdminProducts() {
               {error && <p className="admin-form__error">{error}</p>}
               <div className="admin-form__footer">
                 <button type="button" className="btn-secondary" onClick={() => setShowForm(false)}>Cancel</button>
-                <button type="submit" className="btn-primary" disabled={saving}>
+                <button type="submit" className="btn-primary" disabled={saving || uploading}>
                   {saving ? 'Saving...' : editing ? 'Save Changes' : 'Add Product'}
                 </button>
               </div>

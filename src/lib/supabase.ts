@@ -11,6 +11,7 @@ export type Blog = {
   slug: string
   content: string
   excerpt: string
+  category: string
   image_url: string
   published: boolean
   created_at: string
