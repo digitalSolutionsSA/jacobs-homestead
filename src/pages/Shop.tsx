@@ -13,6 +13,7 @@ export default function Shop() {
   const [added, setAdded] = useState<string | null>(null)
   const [search, setSearch] = useState('')
   const [activeCategory, setActiveCategory] = useState('All')
+  const [selected, setSelected] = useState<Product | null>(null)
 
   const cartCount = items.reduce((s, i) => s + i.qty, 0)
 
@@ -46,6 +47,8 @@ export default function Shop() {
     setAdded(p.id)
     setTimeout(() => setAdded(null), 1500)
   }
+
+  const closeModal = () => setSelected(null)
 
   return (
     <div>
@@ -122,16 +125,22 @@ export default function Shop() {
                 <div className="shop-grid">
                   {filtered.map((p, i) => (
                     <div key={p.id} className="shop-card fade-up" style={{ animationDelay: `${i * 0.08}s` }}>
-                      <div className="shop-card__img-wrap">
+                      <div className="shop-card__img-wrap" onClick={() => setSelected(p)} style={{ cursor: 'pointer' }}>
                         <img className="shop-card__img" src={p.image_url} alt={p.name} />
                       </div>
                       <div className="shop-card__body">
                         <span className="shop-card__category">{p.category}</span>
                         <h3 className="shop-card__name">{p.name}</h3>
+                        {p.description && <p className="shop-card__desc">{p.description}</p>}
                         <p className="shop-card__price">R{p.price.toFixed(2)}</p>
-                        <button className="shop-card__btn" onClick={() => handleAdd(p)}>
-                          {added === p.id ? '✓ Added!' : 'Add to Cart'}
-                        </button>
+                        <div className="shop-card__actions">
+                          <button className="shop-card__btn shop-card__btn--outline" onClick={() => setSelected(p)}>
+                            View Details
+                          </button>
+                          <button className="shop-card__btn" onClick={() => handleAdd(p)}>
+                            {added === p.id ? '✓ Added!' : 'Add to Cart'}
+                          </button>
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -141,6 +150,73 @@ export default function Shop() {
           )}
         </div>
       </section>
+
+      {/* Product detail modal */}
+      {selected && (
+        <div className="product-modal-overlay" onClick={closeModal}>
+          <div className="product-modal" onClick={e => e.stopPropagation()}>
+            <button className="product-modal__close" onClick={closeModal} aria-label="Close">✕</button>
+
+            <div className="product-modal__inner">
+              {selected.image_url && (
+                <div className="product-modal__image">
+                  <img src={selected.image_url} alt={selected.name} />
+                </div>
+              )}
+
+              <div className="product-modal__info">
+                {selected.category && (
+                  <span className="product-modal__category">{selected.category}</span>
+                )}
+                <h2 className="product-modal__name">{selected.name}</h2>
+                <p className="product-modal__price">R{selected.price.toFixed(2)}</p>
+
+                {selected.full_description && (
+                  <div className="product-modal__description">
+                    <p>{selected.full_description}</p>
+                  </div>
+                )}
+
+                {(selected.weight || selected.dimensions) && (
+                  <div className="product-modal__specs">
+                    <h4 className="product-modal__specs-title">Product Details</h4>
+                    <ul className="product-modal__specs-list">
+                      {selected.weight && (
+                        <li>
+                          <span className="product-modal__spec-label">Weight</span>
+                          <span className="product-modal__spec-value">{selected.weight}</span>
+                        </li>
+                      )}
+                      {selected.dimensions && (
+                        <li>
+                          <span className="product-modal__spec-label">Dimensions</span>
+                          <span className="product-modal__spec-value">{selected.dimensions}</span>
+                        </li>
+                      )}
+                      <li>
+                        <span className="product-modal__spec-label">Availability</span>
+                        <span className="product-modal__spec-value">
+                          {selected.stock > 0 ? `In stock (${selected.stock} available)` : 'Out of stock'}
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+
+                <div className="product-modal__footer">
+                  <button
+                    className="product-modal__add-btn"
+                    onClick={() => handleAdd(selected)}
+                    disabled={selected.stock === 0}
+                  >
+                    {added === selected.id ? '✓ Added to Cart!' : selected.stock === 0 ? 'Out of Stock' : 'Add to Cart'}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

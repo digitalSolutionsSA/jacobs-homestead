@@ -5,7 +5,7 @@ import './AdminProducts.css'
 
 const PRODUCT_CATEGORIES = ['Eggs', 'Chickens', 'Honey', 'Produce', 'Printables', 'Digital Downloads', 'Little Makers', 'Other']
 
-const emptyProduct = { name: '', description: '', price: '', image_url: '', category: '', stock: '0', available: true }
+const emptyProduct = { name: '', description: '', full_description: '', price: '', image_url: '', category: '', stock: '0', available: true, weight: '', dimensions: '' }
 
 async function uploadImage(file: File, folder: string): Promise<string> {
   const ext = file.name.split('.').pop()
@@ -48,11 +48,14 @@ export default function AdminProducts() {
     setForm({
       name: product.name,
       description: product.description ?? '',
+      full_description: product.full_description ?? '',
       price: String(product.price),
       image_url: product.image_url ?? '',
       category: product.category ?? '',
       stock: String(product.stock ?? 0),
       available: product.available,
+      weight: product.weight ?? '',
+      dimensions: product.dimensions ?? '',
     })
     setError('')
     setShowForm(true)
@@ -80,11 +83,14 @@ export default function AdminProducts() {
     const payload = {
       name: form.name,
       description: form.description,
+      full_description: form.full_description,
       price: parseFloat(form.price) || 0,
       image_url: form.image_url,
       category: form.category,
       stock: parseInt(form.stock) || 0,
       available: form.available,
+      weight: form.weight,
+      dimensions: form.dimensions,
       updated_at: new Date().toISOString(),
     }
     const { error: err } = editing
@@ -226,13 +232,42 @@ export default function AdminProducts() {
                 {uploading && <p className="admin-upload-status">Uploading image...</p>}
               </div>
               <div className="admin-form__field">
-                <label>Description</label>
+                <label>Short Description <span style={{ fontWeight: 400, color: '#aaa' }}>(shown on card)</span></label>
                 <textarea
                   value={form.description}
                   onChange={e => setForm(f => ({ ...f, description: e.target.value }))}
-                  rows={4}
-                  placeholder="Describe the product..."
+                  rows={2}
+                  placeholder="One or two lines shown on the product card..."
                 />
+              </div>
+              <div className="admin-form__field">
+                <label>Full Description <span style={{ fontWeight: 400, color: '#aaa' }}>(shown in popup)</span></label>
+                <textarea
+                  value={form.full_description}
+                  onChange={e => setForm(f => ({ ...f, full_description: e.target.value }))}
+                  rows={5}
+                  placeholder="Detailed product description for the popup view..."
+                />
+              </div>
+              <div className="admin-form__row">
+                <div className="admin-form__field">
+                  <label>Weight <span style={{ fontWeight: 400, color: '#aaa' }}>(e.g. 250g)</span></label>
+                  <input
+                    type="text"
+                    value={form.weight}
+                    onChange={e => setForm(f => ({ ...f, weight: e.target.value }))}
+                    placeholder="e.g. 500g"
+                  />
+                </div>
+                <div className="admin-form__field">
+                  <label>Dimensions <span style={{ fontWeight: 400, color: '#aaa' }}>(e.g. 20×15×5 cm)</span></label>
+                  <input
+                    type="text"
+                    value={form.dimensions}
+                    onChange={e => setForm(f => ({ ...f, dimensions: e.target.value }))}
+                    placeholder="e.g. 20 × 15 × 5 cm"
+                  />
+                </div>
               </div>
               <div className="admin-form__field admin-form__field--row">
                 <label>

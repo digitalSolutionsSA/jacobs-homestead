@@ -8,6 +8,7 @@ import Shop from './pages/Shop'
 import Cart from './pages/Cart'
 import Checkout from './pages/Checkout'
 import Blog from './pages/Blog'
+import BlogPost from './pages/BlogPost'
 import YouTubeMedia from './pages/YouTubeMedia'
 import Contact from './pages/Contact'
 import AdminLogin from './pages/admin/AdminLogin'
@@ -29,6 +30,7 @@ function App() {
               <Route path="cart" element={<Cart />} />
               <Route path="checkout" element={<Checkout />} />
               <Route path="blog" element={<Blog />} />
+              <Route path="blog/:slug" element={<BlogPost />} />
               <Route path="youtube-media" element={<YouTubeMedia />} />
               <Route path="contact" element={<Contact />} />
             </Route>
